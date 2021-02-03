@@ -77,7 +77,7 @@ query demoPageEntryQuery {
 // const client = createClient({
 //   space: '7nuykul75i3k',
 //   accessToken:
-//     '0a531c422fe17337c470f11a7d20af635dc81ce638456081ea4f6d70e23025ba',
+//     'APIKEY',
 // });
 
 // graphql.contentful.com/content/v1/spaces/7nuykul75i3k
@@ -85,7 +85,7 @@ query demoPageEntryQuery {
 // space id: 7nuykul75i3k
 // access token
 
-//graphql.contentful.com/content/v1/spaces/7nuykul75i3k/explore?access_token=0a531c422fe17337c470f11a7d20af635dc81ce638456081ea4f6d70e23025ba
+//graphql.contentful.com/content/v1/spaces/7nuykul75i3k/explore?access_token=APIKEY
 
 const Flex = styled.div`
   display: flex;
@@ -105,12 +105,14 @@ function App() {
     //   setData(page);
     // });
 
+    console.log(process.env.REACT_APP_API_KEY);
+
     axios({
       method: 'POST',
       url: `https://graphql.contentful.com/content/v1/spaces/7nuykul75i3k`,
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer 0a531c422fe17337c470f11a7d20af635dc81ce638456081ea4f6d70e23025ba`,
+        Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
       },
       data: {
         query: queryTwo,
