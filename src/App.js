@@ -1,42 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { createClient } from 'contentful';
-import styled from 'styled-components';
+// import { createClient } from 'contentful';
 import axios from 'axios';
 import { componentMapper } from './componentMapper';
-const queryOne = `
-  query {
-    demoPageCollection(where: { slug: "new-page"}, limit: 1) {
-    items {
-      title
-      sectionsCollection(limit: 3) {
-        items {
-          ... on FiftyFifty {
-            title
-            heading
-            subText
-            image {
-              url
-            }
-          }
-          ... on CardSection {
-            title
-            heading
-            cardGroupCollection(limit:3) {
-              items {
-                ... on Card {
-                  title
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-`;
+// const queryOne = `
+//   query {
+//     demoPageCollection(where: { slug: "new-page"}, limit: 1) {
+//     items {
+//       title
+//       sectionsCollection(limit: 3) {
+//         items {
+//           ... on FiftyFifty {
+//             title
+//             heading
+//             subText
+//             image {
+//               url
+//             }
+//           }
+//           ... on CardSection {
+//             title
+//             heading
+//             cardGroupCollection(limit:3) {
+//               items {
+//                 ... on Card {
+//                   title
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+// `;
 
 const queryTwo = `
 query demoPageEntryQuery {
@@ -86,11 +84,6 @@ query demoPageEntryQuery {
 // access token
 
 //graphql.contentful.com/content/v1/spaces/7nuykul75i3k/explore?access_token=APIKEY
-
-const Flex = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
 
 function App() {
   const [data, setData] = React.useState(null);
