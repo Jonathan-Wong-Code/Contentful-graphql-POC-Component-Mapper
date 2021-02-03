@@ -38,7 +38,7 @@ import { componentMapper } from './componentMapper';
 
 const queryTwo = `
 query demoPageEntryQuery {
-  demoPage(id: "Yapr7AwU1W30EMJdOdlKK") {
+  demoPage(id: "dA93EtlqWriAO637bU3DG") {
     sys {
       id
     }
@@ -98,11 +98,9 @@ function App() {
     //   setData(page);
     // });
 
-    console.log(process.env.REACT_APP_API_KEY);
-
     axios({
       method: 'POST',
-      url: `https://graphql.contentful.com/content/v1/spaces/7nuykul75i3k`,
+      url: `https://graphql.contentful.com/content/v1/spaces/${process.env.REACT_APP_SPACE_ID}`,
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
@@ -112,6 +110,7 @@ function App() {
       },
     })
       .then((res) => {
+        console.log(res);
         setData(res.data.data.demoPage);
       })
       .catch((e) => {

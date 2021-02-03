@@ -7,15 +7,17 @@ const Flex = styled.div`
 `;
 
 export const CardSection = ({ heading, cardGroupCollection }) => (
-  <Flex>
+  <section>
     <h2>{heading}</h2>
-    {cardGroupCollection.items.map((card) => {
-      return (
-        <div>
-          <h3>{card.heading}</h3>
-          <p>{card.description}</p>
-        </div>
-      );
-    })}
-  </Flex>
+    <Flex>
+      {cardGroupCollection.items.map((card) => {
+        return (
+          <div>
+            <h3>{card.heading}</h3>
+            <p>{card.description}</p>
+          </div>
+        );
+      })}
+    </Flex>
+  </section>
 );
