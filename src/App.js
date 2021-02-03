@@ -131,8 +131,6 @@ function App() {
     title,
   } = data;
 
-  console.log(items);
-
   return (
     <div className='App'>
       <h2>{title}</h2>
@@ -140,32 +138,6 @@ function App() {
         const Template = componentMapper(sectionProps.__typename);
         return <Template {...sectionProps} />;
       })}
-      {/* <Flex>
-        {items[0].cardGroupCollection.items.map((card) => {
-          return (
-            <div>
-              <h3>{card.heading}</h3>
-              <p>{card.description}</p>
-            </div>
-          );
-        })}
-      </Flex>
-      <Flex>
-        <div
-          style={{
-            width: '100%',
-            display: 'flex',
-            alignItems: 'center',
-            background: 'grey',
-          }}
-        >
-          <div>
-            <h2>{items[1].heading}</h2>
-            <p>{items[1].subText}</p>
-          </div>
-        </div>
-        <img style={{ width: '100%' }} src={items[1].image.url} alt='' />
-      </Flex> */}
     </div>
   );
 }
